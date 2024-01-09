@@ -16,6 +16,8 @@ public class Account {
 	public void addCredit(int value) {
 		this.credit += 5;
 	}
+	
+	
 
 	public int getDebit() {
 		return debit;
