@@ -13,5 +13,15 @@ public class TestCompte {
 		
 	}
 	
+	@Test
+	public void testIfValueIncrementedWhenCreditAccount() {
+		Account a1 = new Account();
+		assertEquals(a1.getCredit(),0);
+		
+		a1.addCredit(5);
+		
+		assertEquals(a1.getCredit(), 5);
+	}
+	
 
 }
