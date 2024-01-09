@@ -23,5 +23,7 @@ public class TestCompte {
 		assertEquals(a1.getCredit(), 5);
 	}
 	
+	s
+	
 
 }
