@@ -59,7 +59,10 @@ public class TestCompte {
 	public void testIfSoldCorrectAfterSomeOperations() throws NegativeValueException {
 		assertEquals(a1.getSold(), 0);
 		a1.addCredit(47);
-		assertEquals(a1.getSold(), 5);
+		a1.addDebit(12);
+		a1.addCredit(25);
+		a1.addDebit(30);
+		assertEquals(a1.getSold(), 30);
 	}
 
 }
