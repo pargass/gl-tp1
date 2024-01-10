@@ -24,7 +24,7 @@ public class Account {
 		this.debit += value;
 	}
 	
-	public void checkValue(int value) throws NegativeValueException {
+	private void checkValue(int value) throws NegativeValueException {
 		if (value < 0) {
 			throw new NegativeValueException();
 		}
