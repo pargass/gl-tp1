@@ -1,15 +1,21 @@
 import static org.junit.Assert.*;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import Exception.NegativeValueException;
 
 public class TestCompte {
 	
+	private Account a1;
+	
+	@BeforeEach
+	public void init() {
+		this.a1 = new Account();
+	}
+	
+	
 	@Test
 	public void testIfCreditAndDebitToZeroWhenAccountCreated(){
-		Account a1 = new Account();
-		
 		assertEquals(a1.getCredit(),0);
 		assertEquals(a1.getDebit(),0);
 		
@@ -17,7 +23,6 @@ public class TestCompte {
 	
 	@Test
 	public void testIfValueIncrementedWhenCreditAccount() throws NegativeValueException {
-		Account a1 = new Account();
 		assertEquals(a1.getCredit(),0);
 		
 		a1.addCredit(5);
@@ -27,7 +32,6 @@ public class TestCompte {
 	
 	@Test
 	public void testIfValueIncrementedWhenDebitAccount() throws NegativeValueException {
-		Account a1 = new Account();
 		assertEquals(a1.getDebit(),0);
 		
 		a1.addDebit(5);
@@ -37,7 +41,6 @@ public class TestCompte {
 	
 	@Test
 	public void testIfNegativeValueThrowsExceptionInAddCredit() {
-		Account a1 = new Account();
 		assertEquals(a1.getCredit(),0);
 		assertThrows(NegativeValueException.class, () -> {
 			a1.addCredit(-5);
@@ -46,7 +49,6 @@ public class TestCompte {
 	
 	@Test
 	public void testIfNegativeValueThrowsExceptionInAddDebit() {
-		Account a1 = new Account();
 		assertEquals(a1.getDebit(),0);
 		assertThrows(NegativeValueException.class, () -> {
 			a1.addDebit(-5);
