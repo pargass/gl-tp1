@@ -1,4 +1,4 @@
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import org.junit.jupiter.api.Test;
 
@@ -31,6 +31,15 @@ public class TestCompte {
 		a1.addDebit(5);
 		
 		assertEquals(a1.getDebit(), 5);
+	}
+	
+	@Test
+	public void testIfNegativeValueThrowsExceptionInAddCredit() {
+		Account a1 = new Account();
+		assertEquals(a1.getDebit(),0);
+		assertThrows(NegativeValueException.class, () -> {
+			a1.addCredit(-5);
+		});
 	}
 	
 
