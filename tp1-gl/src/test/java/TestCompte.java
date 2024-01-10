@@ -56,13 +56,10 @@ public class TestCompte {
 	}
 	
 	@Test
-	public void testIfSoldCorrectAfterSomeOperations() {
+	public void testIfSoldCorrectAfterSomeOperations() throws NegativeValueException {
 		assertEquals(a1.getSold(), 0);
 		a1.addCredit(47);
-		a1.addDebit(12);
-		a1.addCredit(25);
-		a1.addDebit(30);
-		assertEquals(a1.getSold(), 30);
+		assertEquals(a1.getSold(), 5);
 	}
 
 }

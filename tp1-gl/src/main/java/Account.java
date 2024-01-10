@@ -45,4 +45,8 @@ public class Account {
 	public void setCredit(int credit) {
 		this.credit = credit;
 	}
+
+	public int getSold() {
+		return this.credit - this.debit;
+	}
 }
