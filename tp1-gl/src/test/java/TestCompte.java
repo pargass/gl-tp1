@@ -64,5 +64,12 @@ public class TestCompte {
 		a1.addDebit(30);
 		assertEquals(a1.getSold(), 30);
 	}
+	
+	@Test
+	public void testIfCreditAddToTheList() {
+		assertEquals(a1.getGreditHistory().isEmpty(), True );
+		a1.addCredit(10);
+		assertEquals(a1.getCreditHistory()[1], 10);
+	}
 
 }
