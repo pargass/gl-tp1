@@ -38,11 +38,19 @@ public class TestCompte {
 	@Test
 	public void testIfNegativeValueThrowsExceptionInAddCredit() {
 		Account a1 = new Account();
-		assertEquals(a1.getDebit(),0);
+		assertEquals(a1.getCredit(),0);
 		assertThrows(NegativeValueException.class, () -> {
 			a1.addCredit(-5);
 		});
 	}
 	
+	@Test
+	public void testIfNegativeValueThrowsExceptionInAddDebit() {
+		Account a1 = new Account();
+		assertEquals(a1.getDebit(),0);
+		assertThrows(NegativeValueException.class, () -> {
+			a1.addDebit(-5);
+		});
+	}
 
 }
