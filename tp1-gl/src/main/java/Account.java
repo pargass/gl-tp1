@@ -21,7 +21,10 @@ public class Account {
 		this.credit += 5;
 	}
 	
-	public void addDebit(int value) {
+	public void addDebit(int value) throws NegativeValueException {
+		if (value < 0) {
+			throw new NegativeValueException();
+		}
 		this.debit += 5;
 	}
 

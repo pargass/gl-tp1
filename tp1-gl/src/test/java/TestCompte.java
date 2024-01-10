@@ -26,7 +26,7 @@ public class TestCompte {
 	}
 	
 	@Test
-	public void testIfValueIncrementedWhenDebitAccount() {
+	public void testIfValueIncrementedWhenDebitAccount() throws NegativeValueException {
 		Account a1 = new Account();
 		assertEquals(a1.getDebit(),0);
 		
