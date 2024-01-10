@@ -54,5 +54,15 @@ public class TestCompte {
 			a1.addDebit(-5);
 		});
 	}
+	
+	@Test
+	public void testIfSoldCorrectAfterSomeOperations() {
+		assertEquals(a1.getSold(), 0);
+		a1.addCredit(47);
+		a1.addDebit(12);
+		a1.addCredit(25);
+		a1.addDebit(30);
+		assertEquals(a1.getSold(), 30);
+	}
 
 }
