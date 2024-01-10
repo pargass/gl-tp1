@@ -1,3 +1,4 @@
+import Exception.NegativeValueException;
 
 public class Account {
 	
@@ -13,7 +14,10 @@ public class Account {
 		this.setDebit(0);
 	}
 	
-	public void addCredit(int value) {
+	public void addCredit(int value) throws NegativeValueException{
+		if (value < 0) {
+			throw new NegativeValueException();
+		}
 		this.credit += 5;
 	}
 	

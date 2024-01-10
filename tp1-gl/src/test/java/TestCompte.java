@@ -2,6 +2,8 @@ import static org.junit.Assert.*;
 
 import org.junit.jupiter.api.Test;
 
+import Exception.NegativeValueException;
+
 public class TestCompte {
 	
 	@Test
@@ -14,7 +16,7 @@ public class TestCompte {
 	}
 	
 	@Test
-	public void testIfValueIncrementedWhenCreditAccount() {
+	public void testIfValueIncrementedWhenCreditAccount() throws NegativeValueException {
 		Account a1 = new Account();
 		assertEquals(a1.getCredit(),0);
 		
