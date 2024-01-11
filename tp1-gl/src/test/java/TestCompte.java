@@ -128,7 +128,6 @@ public class TestCompte {
         a1.addCredit(500);
         a1.addCredit(1000);
         a1.addCredit(2000);
-
 		
 		a1.addDebit(100);
         a1.addDebit(200);

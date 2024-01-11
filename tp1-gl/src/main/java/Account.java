@@ -29,14 +29,14 @@ public class Account {
 		this.checkValue(value);
 		this.credit += value;
 		updateHistory(creditHistory, value, creditIndex);
-	    creditIndex = (creditIndex >= creditHistory.length) ? 1 : creditIndex + 1;
+	    creditIndex = (creditIndex >= creditHistory.length) ? 2 : creditIndex + 1;
 	}
 	
 	public void addDebit(int value) throws NegativeValueException {
 		this.checkValue(value);
 		this.debit += value;
 		updateHistory(debitHistory, value, debitIndex);
-	    debitIndex = (debitIndex >= debitHistory.length) ? 1 : debitIndex + 1;
+	    debitIndex = (debitIndex >= debitHistory.length) ? 2 : debitIndex + 1;
 	}
 	
 	private void checkValue(int value) throws NegativeValueException {
@@ -98,6 +98,21 @@ public class Account {
 			System.out.println(value);
 		}
 		System.out.println('\n');
+	}
+
+	public double getTotalSold() {
+		double totalCredit = 0;
+		double totalDebit = 0;
+		
+		for(double value : this.creditHistory) {
+			totalCredit += value;
+		}
+		
+		for(double value : this.debitHistory) {
+			totalDebit += value;
+		}
+		
+		return totalCredit - totalDebit;
 	}
 
 }
