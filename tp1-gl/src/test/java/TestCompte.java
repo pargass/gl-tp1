@@ -117,4 +117,31 @@ public class TestCompte {
         assertEquals(600, a1.getDebitHistory()[1], 0.01);
 	}
 	
+	@Test
+	public void testIfSoldIsCorrect() throws NegativeValueException {
+		assertEquals(0, a1.getSold());
+		
+		a1.addCredit(100);
+        a1.addCredit(200);
+        a1.addCredit(300);
+        a1.addCredit(400);
+        a1.addCredit(500);
+        a1.addCredit(1000);
+        a1.addCredit(2000);
+
+		
+		a1.addDebit(100);
+        a1.addDebit(200);
+        a1.addDebit(300);
+        a1.addDebit(400);
+        a1.addDebit(500);
+        a1.addDebit(700);
+        a1.addDebit(900);
+        
+        double expectedSold = 100+200+300+400+500+1000+2000-100-200-300-400-500-700-900;
+        assertEquals(expectedSold, a1.getTotalSold(), 0.01);
+        
+        
+	}
+	
 }
