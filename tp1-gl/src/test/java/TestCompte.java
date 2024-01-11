@@ -70,6 +70,10 @@ public class TestCompte {
 		a1.addCredit(100);
 		
 		assertEquals(100, a1.getCreditHistory()[0], 0.01);
+		
+		a1.addCredit(200);
+		
+		assertEquals(200, a1.getCreditHistory()[1], 0.01);
 	}
 	
 	@Test
@@ -77,6 +81,10 @@ public class TestCompte {
 		a1.addDebit(100);
 		
 		assertEquals(100, a1.getDebitHistory()[0], 0.01);
+		
+		a1.addDebit(200);
+		
+		assertEquals(200, a1.getDebitHistory()[1], 0.01);
 	}
 	
 }
