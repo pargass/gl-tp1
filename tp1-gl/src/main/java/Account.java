@@ -9,8 +9,10 @@ public class Account {
 	private int credit;
 
 	private double[] creditHistory;
+	private double[] debitHistory;
 
 	private int creditIndex;
+	private int debitIndex;
 
 	
 	/*constructor*/
@@ -18,6 +20,7 @@ public class Account {
 		this.setCredit(0);
 		this.setDebit(0);
 		this.creditHistory = new double[5];
+		this.debitHistory = new double[5];
 	}
 	
 	public void addCredit(int value) throws NegativeValueException{
@@ -30,6 +33,8 @@ public class Account {
 	public void addDebit(int value) throws NegativeValueException {
 		this.checkValue(value);
 		this.debit += value;
+		updateHistory(debitHistory, value, debitIndex);
+        debitIndex = (debitIndex + 1) % debitHistory.length;
 	}
 	
 	private void checkValue(int value) throws NegativeValueException {
@@ -66,5 +71,9 @@ public class Account {
 		history[index] = value;
     
     }
+
+	public double[] getDebitHistory() {
+		return debitHistory;
+	}
 
 }
