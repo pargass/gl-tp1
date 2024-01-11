@@ -110,7 +110,7 @@ public class TestCompte {
         a1.addDebit(400);
         a1.addDebit(500); 
 
-        a1.addCredit(600); // Cela devrait déplacer la somme au début et ajouter 600 à l'indice 1
+        a1.addDebit(600); // Cela devrait déplacer la somme au début et ajouter 600 à l'indice 1
 
         double expectedSum = 100 + 200 + 300 + 400 + 500; // Somme des 5 premiers crédits
         assertEquals(expectedSum, a1.getDebitHistory()[0], 0.01);

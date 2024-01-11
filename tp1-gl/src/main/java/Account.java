@@ -36,7 +36,7 @@ public class Account {
 		this.checkValue(value);
 		this.debit += value;
 		updateHistory(debitHistory, value, debitIndex);
-        debitIndex = (debitIndex + 1) % debitHistory.length;
+	    debitIndex = (debitIndex >= debitHistory.length) ? 1 : debitIndex + 1;
 	}
 	
 	private void checkValue(int value) throws NegativeValueException {
@@ -78,7 +78,6 @@ public class Account {
 	    } else {
 	        history[index] = value;   // Ajouter la valeur à l'indice actuel
 	    }
-	    this.printHistory(history);
 	}
 
 	
