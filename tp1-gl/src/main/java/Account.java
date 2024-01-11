@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 import Exception.NegativeValueException;
 
 public class Account {
@@ -27,7 +29,7 @@ public class Account {
 		this.checkValue(value);
 		this.credit += value;
 		updateHistory(creditHistory, value, creditIndex);
-        creditIndex = (creditIndex + 1) % creditHistory.length;
+	    creditIndex = (creditIndex >= creditHistory.length) ? 1 : creditIndex + 1;
 	}
 	
 	public void addDebit(int value) throws NegativeValueException {
@@ -68,12 +70,35 @@ public class Account {
 	}
 	
 	private void updateHistory(double[] history, double value, int index) {
-		history[index] = value;
-    
+	    if (index >= history.length ) {
+	        double sum = calculateSum(history);
+	        Arrays.fill(history, 0);  // Réinitialiser le tableau
+	        history[0] = sum;         // Stocker la somme à l'indice 0
+	        history[1] = value;       // Stocker le nouveau crédit à l'indice 1
+	    } else {
+	        history[index] = value;   // Ajouter la valeur à l'indice actuel
+	    }
+	    this.printHistory(history);
+	}
+
+	
+	private double calculateSum(double[] array) {
+        double sum = 0;
+        for (double value : array) {
+            sum += value;
+        }
+        return sum;
     }
 
 	public double[] getDebitHistory() {
 		return debitHistory;
+	}
+	
+	private void printHistory(double[] hist) {
+		for (double value : hist) {
+			System.out.println(value);
+		}
+		System.out.println('\n');
 	}
 
 }
