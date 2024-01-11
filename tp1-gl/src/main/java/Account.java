@@ -7,6 +7,7 @@ public class Account {
 	
 	/*credit of the account*/
 	private int credit;
+
 	
 	/*constructor*/
 	public Account() {
@@ -49,4 +50,6 @@ public class Account {
 	public int getSold() {
 		return this.credit - this.debit;
 	}
+
+
 }

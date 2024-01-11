@@ -67,9 +67,9 @@ public class TestCompte {
 	
 	@Test
 	public void testIfCreditAddToTheList() {
-		assertEquals(a1.getCreditHistory().isEmpty(), true );
-		a1.addCredit(10);
-		assertEquals(a1.getCreditHistory[0], 10);
+		a1.addCredit(100);
+		
+		assertEquals(100, a1.getCreditHistory()[0]);
 	}
-
+	
 }
