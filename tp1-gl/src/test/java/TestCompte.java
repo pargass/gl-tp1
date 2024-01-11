@@ -87,4 +87,19 @@ public class TestCompte {
 		assertEquals(200, a1.getDebitHistory()[1], 0.01);
 	}
 	
+	@Test
+    public void testIfCreditHistorySumToIndexZeroWhenFull() throws NegativeValueException {
+        a1.addCredit(100);
+        a1.addCredit(200);
+        a1.addCredit(300);
+        a1.addCredit(400);
+        a1.addCredit(500); 
+
+        a1.addCredit(600); // Cela devrait déplacer la somme au début et ajouter 600 à l'indice 1
+
+        double expectedSum = 100 + 200 + 300 + 400 + 500; // Somme des 5 premiers crédits
+        assertEquals(expectedSum, a1.getCreditHistory()[0], 0.01);
+        assertEquals(600, a1.getCreditHistory()[1], 0.01);
+	}
+	
 }
