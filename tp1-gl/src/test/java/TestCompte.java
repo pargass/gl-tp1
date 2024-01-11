@@ -89,30 +89,28 @@ public class TestCompte {
 	
 	@Test
     public void testIfCreditHistorySumToIndexZeroWhenFull() throws NegativeValueException {
-        a1.addCredit(100);
-        a1.addCredit(200);
-        a1.addCredit(300);
-        a1.addCredit(400);
-        a1.addCredit(500); 
+		double expectedSum = 0;
+		for (int i =0; i<Account.HISTORY_LENGTH; i++) {
+        	a1.addCredit(i*100);
+        	expectedSum += i*100;
+        }
 
         a1.addCredit(600); // Cela devrait déplacer la somme au début et ajouter 600 à l'indice 1
 
-        double expectedSum = 100 + 200 + 300 + 400 + 500; // Somme des 5 premiers crédits
         assertEquals(expectedSum, a1.getCreditHistory()[0], 0.01);
         assertEquals(600, a1.getCreditHistory()[1], 0.01);
 	}
 	
 	@Test
     public void testIfDebitHistorySumToIndexZeroWhenFull() throws NegativeValueException {
-        a1.addDebit(100);
-        a1.addDebit(200);
-        a1.addDebit(300);
-        a1.addDebit(400);
-        a1.addDebit(500); 
+		double expectedSum = 0;
+		for (int i =0; i<Account.HISTORY_LENGTH; i++) {
+        	a1.addDebit(i*100);
+        	expectedSum += i*100;
+        }
 
-        a1.addDebit(600); // Cela devrait déplacer la somme au début et ajouter 600 à l'indice 1
-
-        double expectedSum = 100 + 200 + 300 + 400 + 500; // Somme des 5 premiers crédits
+        a1.addDebit(600);
+        
         assertEquals(expectedSum, a1.getDebitHistory()[0], 0.01);
         assertEquals(600, a1.getDebitHistory()[1], 0.01);
 	}

@@ -15,14 +15,16 @@ public class Account {
 
 	private int creditIndex;
 	private int debitIndex;
+	
+	static final int HISTORY_LENGTH = 10;
 
 	
 	/*constructor*/
 	public Account() {
 		this.setCredit(0);
 		this.setDebit(0);
-		this.creditHistory = new double[5];
-		this.debitHistory = new double[5];
+		this.creditHistory = new double[Account.HISTORY_LENGTH];
+		this.debitHistory = new double[Account.HISTORY_LENGTH];
 	}
 	
 	public void addCredit(int value) throws NegativeValueException{
@@ -70,7 +72,7 @@ public class Account {
 	}
 	
 	private void updateHistory(double[] history, double value, int index) {
-	    if (index >= history.length ) {
+	    if (index >= history.length -1) {
 	        double sum = calculateSum(history);
 	        Arrays.fill(history, 0);  // Réinitialiser le tableau
 	        history[0] = sum;         // Stocker la somme à l'indice 0
