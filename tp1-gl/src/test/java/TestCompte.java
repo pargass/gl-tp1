@@ -66,10 +66,10 @@ public class TestCompte {
 	}
 	
 	@Test
-	public void testIfCreditAddToTheList() {
+	public void testIfCreditAddToTheList() throws NegativeValueException {
 		a1.addCredit(100);
 		
-		assertEquals(100, a1.getCreditHistory()[0]);
+		assertEquals(100, a1.getCreditHistory()[0], 0.01);
 	}
 	
 }
