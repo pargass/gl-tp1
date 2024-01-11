@@ -141,4 +141,11 @@ public class TestCompte {
         
 	}
 	
+	@Test
+	public void testCreditZeroForbiddenThrowsAnException() {
+		assertThrows(ZeroValueException.class, () -> {
+			a1.addCredit(0);
+		});
+	}
+	
 }

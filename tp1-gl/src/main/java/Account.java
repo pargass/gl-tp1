@@ -16,7 +16,7 @@ public class Account {
 	private int creditIndex;
 	private int debitIndex;
 	
-	static final int HISTORY_LENGTH = 10;
+	static final int HISTORY_LENGTH = 5;
 
 	
 	/*constructor*/
