@@ -72,4 +72,11 @@ public class TestCompte {
 		assertEquals(100, a1.getCreditHistory()[0], 0.01);
 	}
 	
+	@Test
+	public void testIfDebitAddToTheList() throws NegativeValueException {
+		a1.addDebit(100);
+		
+		assertEquals(100, a1.getDebitHistory()[0], 0.01);
+	}
+	
 }
