@@ -1,6 +1,7 @@
 import java.util.Arrays;
 
 import Exception.NegativeValueException;
+import Exception.ZeroValueException;
 
 public class Account {
 	
@@ -27,23 +28,25 @@ public class Account {
 		this.debitHistory = new double[Account.HISTORY_LENGTH];
 	}
 	
-	public void addCredit(int value) throws NegativeValueException{
+	public void addCredit(int value) throws NegativeValueException, ZeroValueException{
 		this.checkValue(value);
 		this.credit += value;
 		updateHistory(creditHistory, value, creditIndex);
 	    creditIndex = (creditIndex >= creditHistory.length) ? 2 : creditIndex + 1;
 	}
 	
-	public void addDebit(int value) throws NegativeValueException {
+	public void addDebit(int value) throws NegativeValueException, ZeroValueException {
 		this.checkValue(value);
 		this.debit += value;
 		updateHistory(debitHistory, value, debitIndex);
 	    debitIndex = (debitIndex >= debitHistory.length) ? 2 : debitIndex + 1;
 	}
 	
-	private void checkValue(int value) throws NegativeValueException {
+	private void checkValue(int value) throws NegativeValueException, ZeroValueException {
 		if (value < 0) {
 			throw new NegativeValueException();
+		} else if (value == 0) {
+			throw new ZeroValueException();
 		}
 	}
 

@@ -3,6 +3,7 @@ import static org.junit.Assert.*;
 import org.junit.jupiter.api.*;
 
 import Exception.NegativeValueException;
+import Exception.ZeroValueException;
 
 public class TestCompte {
 	
@@ -22,7 +23,7 @@ public class TestCompte {
 	}
 	
 	@Test
-	public void testIfValueIncrementedWhenCreditAccount() throws NegativeValueException {
+	public void testIfValueIncrementedWhenCreditAccount() throws NegativeValueException, ZeroValueException {
 		assertEquals(a1.getCredit(),0);
 		
 		a1.addCredit(5);
@@ -31,7 +32,7 @@ public class TestCompte {
 	}
 	
 	@Test
-	public void testIfValueIncrementedWhenDebitAccount() throws NegativeValueException {
+	public void testIfValueIncrementedWhenDebitAccount() throws NegativeValueException, ZeroValueException {
 		assertEquals(a1.getDebit(),0);
 		
 		a1.addDebit(5);
@@ -56,7 +57,7 @@ public class TestCompte {
 	}
 	
 	@Test
-	public void testIfSoldCorrectAfterSomeOperations() throws NegativeValueException {
+	public void testIfSoldCorrectAfterSomeOperations() throws NegativeValueException, ZeroValueException {
 		assertEquals(a1.getSold(), 0);
 		a1.addCredit(47);
 		a1.addDebit(12);
@@ -66,7 +67,7 @@ public class TestCompte {
 	}
 	
 	@Test
-	public void testIfCreditAddToTheList() throws NegativeValueException {
+	public void testIfCreditAddToTheList() throws NegativeValueException, ZeroValueException {
 		a1.addCredit(100);
 		
 		assertEquals(100, a1.getCreditHistory()[0], 0.01);
@@ -77,7 +78,7 @@ public class TestCompte {
 	}
 	
 	@Test
-	public void testIfDebitAddToTheList() throws NegativeValueException {
+	public void testIfDebitAddToTheList() throws NegativeValueException, ZeroValueException {
 		a1.addDebit(100);
 		
 		assertEquals(100, a1.getDebitHistory()[0], 0.01);
@@ -88,11 +89,11 @@ public class TestCompte {
 	}
 	
 	@Test
-    public void testIfCreditHistorySumToIndexZeroWhenFull() throws NegativeValueException {
+    public void testIfCreditHistorySumToIndexZeroWhenFull() throws NegativeValueException, ZeroValueException {
 		double expectedSum = 0;
 		for (int i =0; i<Account.HISTORY_LENGTH; i++) {
-        	a1.addCredit(i*100);
-        	expectedSum += i*100;
+        	a1.addCredit((i+1)*100);
+        	expectedSum += (i+1)*100;
         }
 
         a1.addCredit(600); // Cela devrait déplacer la somme au début et ajouter 600 à l'indice 1
@@ -102,11 +103,11 @@ public class TestCompte {
 	}
 	
 	@Test
-    public void testIfDebitHistorySumToIndexZeroWhenFull() throws NegativeValueException {
+    public void testIfDebitHistorySumToIndexZeroWhenFull() throws NegativeValueException, ZeroValueException {
 		double expectedSum = 0;
 		for (int i =0; i<Account.HISTORY_LENGTH; i++) {
-        	a1.addDebit(i*100);
-        	expectedSum += i*100;
+        	a1.addDebit((i+1)*100);
+        	expectedSum += (i+1)*100;
         }
 
         a1.addDebit(600);
@@ -116,7 +117,7 @@ public class TestCompte {
 	}
 	
 	@Test
-	public void testIfSoldIsCorrect() throws NegativeValueException {
+	public void testIfSoldIsCorrect() throws NegativeValueException, ZeroValueException {
 		assertEquals(0, a1.getSold());
 		
 		a1.addCredit(100);
