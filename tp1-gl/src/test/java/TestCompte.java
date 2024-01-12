@@ -2,20 +2,27 @@ import static org.junit.Assert.*;
 
 import org.junit.jupiter.api.*;
 
+import Account.Account;
+import Account.TransactionHistory;
 import Exception.NegativeValueException;
 import Exception.TooBigValueException;
 import Exception.ZeroValueException;
 
-public class TestCompte {
+public abstract class TestCompte {
 	
 	private Account a1;
 	
 	@BeforeEach
 	public void init() {
-		this.a1 = new Account();
+		TransactionHistory creditHistory = createHistory();
+		TransactionHistory debitHistory = createHistory();
+		this.a1 = new Account(creditHistory, debitHistory);
 	}
 	
 	
+	public abstract TransactionHistory createHistory();
+
+
 	@Test
 	public void testIfCreditAndDebitToZeroWhenAccountCreated(){
 		assertEquals(a1.getCredit(),0);
@@ -71,22 +78,22 @@ public class TestCompte {
 	public void testIfCreditAddToTheList() throws NegativeValueException, ZeroValueException, TooBigValueException {
 		a1.addCredit(100);
 		
-		assertEquals(100, a1.getCreditHistory()[0], 0.01);
+		assertEquals(100, a1.getCreditHistory().getIndex(0), 0.01);
 		
 		a1.addCredit(200);
 		
-		assertEquals(200, a1.getCreditHistory()[1], 0.01);
+		assertEquals(200, a1.getCreditHistory().getIndex(1), 0.01);
 	}
 	
 	@Test
 	public void testIfDebitAddToTheList() throws NegativeValueException, ZeroValueException, TooBigValueException {
 		a1.addDebit(100);
 		
-		assertEquals(100, a1.getDebitHistory()[0], 0.01);
+		assertEquals(100, a1.getDebitHistory().getIndex(0), 0.01);
 		
 		a1.addDebit(200);
 		
-		assertEquals(200, a1.getDebitHistory()[1], 0.01);
+		assertEquals(200, a1.getDebitHistory().getIndex(1), 0.01);
 	}
 	
 	@Test
@@ -99,8 +106,8 @@ public class TestCompte {
 
         a1.addCredit(600); // Cela devrait déplacer la somme au début et ajouter 600 à l'indice 1
 
-        assertEquals(expectedSum, a1.getCreditHistory()[0], 0.01);
-        assertEquals(600, a1.getCreditHistory()[1], 0.01);
+        assertEquals(expectedSum, a1.getCreditHistory().getIndex(0), 0.01);
+        assertEquals(600, a1.getCreditHistory().getIndex(1), 0.01);
 	}
 	
 	@Test
@@ -113,8 +120,8 @@ public class TestCompte {
 
         a1.addDebit(600);
         
-        assertEquals(expectedSum, a1.getDebitHistory()[0], 0.01);
-        assertEquals(600, a1.getDebitHistory()[1], 0.01);
+        assertEquals(expectedSum, a1.getDebitHistory().getIndex(0), 0.01);
+        assertEquals(600, a1.getDebitHistory().getIndex(1), 0.01);
 	}
 	
 	@Test
