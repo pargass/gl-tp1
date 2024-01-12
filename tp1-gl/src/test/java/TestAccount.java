@@ -188,4 +188,13 @@ public abstract class TestAccount {
 		
 	}
 	
+	@Test
+	public void testIfValueIncrementedWhenCreditAccount() throws NegativeValueException, ZeroValueException, TooBigValueException {
+		assertEquals(sa1.getCredit(),0);
+		
+		sa1.addCredit(5);
+		
+		assertEquals(sa1.getCredit(), 5);
+	}
+	
 }
