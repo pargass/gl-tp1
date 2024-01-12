@@ -205,4 +205,13 @@ public abstract class TestAccount {
 		assertEquals(sa1.getSold(), 72);
 	}
 	
+	@Test
+	public void testIfDebitValueSuperiorToSoldThrowsException() {
+		assertEquals(sa1.getSold(), 0);
+		sa1.addCredit(50);
+		assertThrows(NotEnoughSoldException.class, () -> {
+			sa1.addDebit(100);
+		});
+	}
+	
 }
