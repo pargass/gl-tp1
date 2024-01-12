@@ -3,6 +3,7 @@ import static org.junit.Assert.*;
 import org.junit.jupiter.api.*;
 
 import Exception.NegativeValueException;
+import Exception.TooBigValueException;
 import Exception.ZeroValueException;
 
 public class TestCompte {
@@ -23,7 +24,7 @@ public class TestCompte {
 	}
 	
 	@Test
-	public void testIfValueIncrementedWhenCreditAccount() throws NegativeValueException, ZeroValueException {
+	public void testIfValueIncrementedWhenCreditAccount() throws NegativeValueException, ZeroValueException, TooBigValueException {
 		assertEquals(a1.getCredit(),0);
 		
 		a1.addCredit(5);
@@ -32,7 +33,7 @@ public class TestCompte {
 	}
 	
 	@Test
-	public void testIfValueIncrementedWhenDebitAccount() throws NegativeValueException, ZeroValueException {
+	public void testIfValueIncrementedWhenDebitAccount() throws NegativeValueException, ZeroValueException, TooBigValueException {
 		assertEquals(a1.getDebit(),0);
 		
 		a1.addDebit(5);
@@ -57,7 +58,7 @@ public class TestCompte {
 	}
 	
 	@Test
-	public void testIfSoldCorrectAfterSomeOperations() throws NegativeValueException, ZeroValueException {
+	public void testIfSoldCorrectAfterSomeOperations() throws NegativeValueException, ZeroValueException, TooBigValueException {
 		assertEquals(a1.getSold(), 0);
 		a1.addCredit(47);
 		a1.addDebit(12);
@@ -67,7 +68,7 @@ public class TestCompte {
 	}
 	
 	@Test
-	public void testIfCreditAddToTheList() throws NegativeValueException, ZeroValueException {
+	public void testIfCreditAddToTheList() throws NegativeValueException, ZeroValueException, TooBigValueException {
 		a1.addCredit(100);
 		
 		assertEquals(100, a1.getCreditHistory()[0], 0.01);
@@ -78,7 +79,7 @@ public class TestCompte {
 	}
 	
 	@Test
-	public void testIfDebitAddToTheList() throws NegativeValueException, ZeroValueException {
+	public void testIfDebitAddToTheList() throws NegativeValueException, ZeroValueException, TooBigValueException {
 		a1.addDebit(100);
 		
 		assertEquals(100, a1.getDebitHistory()[0], 0.01);
@@ -89,7 +90,7 @@ public class TestCompte {
 	}
 	
 	@Test
-    public void testIfCreditHistorySumToIndexZeroWhenFull() throws NegativeValueException, ZeroValueException {
+    public void testIfCreditHistorySumToIndexZeroWhenFull() throws NegativeValueException, ZeroValueException, TooBigValueException {
 		double expectedSum = 0;
 		for (int i =0; i<Account.HISTORY_LENGTH; i++) {
         	a1.addCredit((i+1)*100);
@@ -103,7 +104,7 @@ public class TestCompte {
 	}
 	
 	@Test
-    public void testIfDebitHistorySumToIndexZeroWhenFull() throws NegativeValueException, ZeroValueException {
+    public void testIfDebitHistorySumToIndexZeroWhenFull() throws NegativeValueException, ZeroValueException, TooBigValueException {
 		double expectedSum = 0;
 		for (int i =0; i<Account.HISTORY_LENGTH; i++) {
         	a1.addDebit((i+1)*100);
@@ -117,7 +118,7 @@ public class TestCompte {
 	}
 	
 	@Test
-	public void testIfSoldIsCorrect() throws NegativeValueException, ZeroValueException {
+	public void testIfSoldIsCorrect() throws NegativeValueException, ZeroValueException, TooBigValueException {
 		assertEquals(0, a1.getSold());
 		
 		a1.addCredit(100);
