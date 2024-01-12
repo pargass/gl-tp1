@@ -8,7 +8,7 @@ import Exception.NegativeValueException;
 import Exception.TooBigValueException;
 import Exception.ZeroValueException;
 
-public abstract class TestCompte {
+public abstract class TestAccount {
 	
 	private Account a1;
 	

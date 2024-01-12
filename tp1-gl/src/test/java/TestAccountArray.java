@@ -1,7 +1,7 @@
 import Account.ArrayTransactionHistory;
 import Account.TransactionHistory;
 
-public class TestCompteArray extends TestCompte {
+public class TestAccountArray extends TestAccount {
 
 	@Override
 	public TransactionHistory createHistory() {

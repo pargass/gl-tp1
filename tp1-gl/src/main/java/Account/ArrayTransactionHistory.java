@@ -17,7 +17,7 @@ public class ArrayTransactionHistory extends TransactionHistory {
 	@Override
 	public void updateHistory(double value) {
 	    if (index >= this.history.length) {
-	        double sum = this.calculateSum();
+	        double sum = this.getSum();
 	        Arrays.fill(this.history, 0);
 	        this.history[0] = sum;         
 	        this.history[1] = value;
@@ -31,13 +31,6 @@ public class ArrayTransactionHistory extends TransactionHistory {
 	}
 
 
-	private double calculateSum() {
-        double sum = 0;
-        for (double value : this.history) {
-            sum += value;
-        }
-        return sum;
-    }
 	
 	public double[] getHistory() {
 		return this.history;
