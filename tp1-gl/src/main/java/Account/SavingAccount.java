@@ -12,6 +12,10 @@ public class SavingAccount {
 		this.setCredit(0);
 		this.setDebit(0);
 	}
+	
+	public void addCredit(double value) {
+		this.credit += value;
+	}
 
 	public int getDebit() {
 		return debit;
