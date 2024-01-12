@@ -197,4 +197,12 @@ public abstract class TestAccount {
 		assertEquals(sa1.getCredit(), 5);
 	}
 	
+	@Test
+	public void testIfSoldCorrectAfterSomeOperationsOnSavingAccount() throws NegativeValueException, ZeroValueException, TooBigValueException {
+		assertEquals(sa1.getSold(), 0);
+		sa1.addCredit(47);
+		sa1.addCredit(25);
+		assertEquals(sa1.getSold(), 30);
+	}
+	
 }
