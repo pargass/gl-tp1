@@ -202,7 +202,7 @@ public abstract class TestAccount {
 		assertEquals(sa1.getSold(), 0);
 		sa1.addCredit(47);
 		sa1.addCredit(25);
-		assertEquals(sa1.getSold(), 30);
+		assertEquals(sa1.getSold(), 72);
 	}
 	
 }
