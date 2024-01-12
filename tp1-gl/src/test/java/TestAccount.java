@@ -3,6 +3,7 @@ import static org.junit.Assert.*;
 import org.junit.jupiter.api.*;
 
 import Account.Account;
+import Account.SavingAccount;
 import Account.TransactionHistory;
 import Exception.NegativeValueException;
 import Exception.TooBigValueException;
