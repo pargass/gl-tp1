@@ -30,7 +30,6 @@ public class Account {
 		this.checkValue(value);
 		this.credit += value;
 		this.creditHistory.updateHistory(value);
-		this.creditHistory.printArray();
 	}
 	
 	public void addDebit(int value) throws NegativeValueException, ZeroValueException, TooBigValueException {

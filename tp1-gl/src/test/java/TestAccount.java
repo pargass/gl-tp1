@@ -11,11 +11,13 @@ import Exception.ZeroValueException;
 public abstract class TestAccount {
 	
 	private Account a1;
+	private SavingAccount sa1;
 	
 	@BeforeEach
 	public void init() {
 		TransactionHistory creditHistory = createHistory();
 		TransactionHistory debitHistory = createHistory();
+		this.sa1 = new SavingAccount(creditHistory, debitHistory);
 		this.a1 = new Account(creditHistory, debitHistory);
 	}
 	
@@ -176,6 +178,13 @@ public abstract class TestAccount {
 		assertThrows(TooBigValueException.class, () -> {
 			a1.addDebit(100001);
 		});
+	}
+	
+	@Test
+	public void testIfCreditAndDebitToZeroWhenSavingAccountCreated(){
+		assertEquals(sa1.getCredit(),0);
+		assertEquals(sa1.getDebit(),0);
+		
 	}
 	
 }
