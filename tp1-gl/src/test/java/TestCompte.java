@@ -156,4 +156,11 @@ public class TestCompte {
 		});
 	}
 	
+	@Test
+	public void testCreditOver100000ThrowsAnException() {
+		assertThrows(ZeroValueException.class, () -> {
+			a1.addCredit(100001);
+		});
+	}
+	
 }
