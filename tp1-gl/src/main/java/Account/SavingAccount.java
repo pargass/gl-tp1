@@ -1,5 +1,7 @@
 package Account;
 
+import Exception.NotEnoughSoldException;
+
 public class SavingAccount {
 	/*debit of the account*/
 	private int debit;
@@ -15,6 +17,14 @@ public class SavingAccount {
 	
 	public void addCredit(double value) {
 		this.credit += value;
+	}
+	
+	public void addDebit(double value) throws NotEnoughSoldException {
+		if ((this.getSold() - this.debit - value) < 0) {
+			throw new NotEnoughSoldException();
+		} else {
+			this.debit += value;
+		}
 	}
 
 	public int getDebit() {

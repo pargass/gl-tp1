@@ -8,6 +8,7 @@ import Account.TransactionHistory;
 import Exception.NegativeValueException;
 import Exception.TooBigValueException;
 import Exception.ZeroValueException;
+import Exception.NotEnoughSoldException;
 
 public abstract class TestAccount {
 	
@@ -206,7 +207,7 @@ public abstract class TestAccount {
 	}
 	
 	@Test
-	public void testIfDebitValueSuperiorToSoldThrowsException() {
+	public void testIfDebitValueSuperiorToSoldThrowsException() throws NotEnoughSoldException{
 		assertEquals(sa1.getSold(), 0);
 		sa1.addCredit(50);
 		assertThrows(NotEnoughSoldException.class, () -> {
