@@ -149,4 +149,11 @@ public class TestCompte {
 		});
 	}
 	
+	@Test
+	public void testDebitZeroForbiddenThrowsAnException() {
+		assertThrows(ZeroValueException.class, () -> {
+			a1.addDebit(0);
+		});
+	}
+	
 }
