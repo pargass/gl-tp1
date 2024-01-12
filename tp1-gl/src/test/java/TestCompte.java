@@ -164,4 +164,11 @@ public class TestCompte {
 		});
 	}
 	
+	@Test
+	public void testDebitOver100000ThrowsAnException() {
+		assertThrows(TooBigValueException.class, () -> {
+			a1.addDebit(100001);
+		});
+	}
+	
 }
