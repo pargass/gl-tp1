@@ -21,6 +21,10 @@ public class Bank {
 	public void creditAccount(int index, double value) throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException {
 		this.accounts.get(index).addCredit(value);
 	}
+	
+	public void debitAccount(int index, double value) throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException {
+		this.accounts.get(index).addDebit(value);
+	}
 
 	public void setAccounts(ArrayList<Account> accounts) {
 		this.accounts = accounts;
@@ -33,6 +37,6 @@ public class Bank {
 	public void openSavingAccount() {
 		this.accounts.add(new SavingAccount(new ArrayListTransactionHistory(), new ArrayListTransactionHistory()));
 	}
-	
+
 	
 }
