@@ -55,6 +55,7 @@ public class SavingAccount {
 	}
 
 	public double calculateInterest() {
-		return this.getSold()*this.getInterestRate()/100;
+		return this.getSold()*this.getInterestRate()/100 - this.getSold();
 	}
+
 }
