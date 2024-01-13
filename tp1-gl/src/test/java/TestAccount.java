@@ -215,4 +215,21 @@ public abstract class TestAccount {
 		});
 	}
 	
+	/*
+	 * Test qu'il aurait fallut faire sans exception.
+	 * 
+	@Test
+	public void testIfDebitValueSuperiorToSoldDontApply() {
+		assertEquals(sa1.getSold(), 0);
+		sa1.addCredit(50);
+		assertEquals(sa1.getSold(), 0);
+	}
+	*/
+	
+	@Test
+	public void testIfInterestAreGood() {
+		assertEquals(sa1.getSold(), 0);
+		sa1.addCredit(100);
+		assertEquals(100*sa1.getInterestRate(),sa1.calculateInterest(), 0.01);
+	}
 }
