@@ -2,6 +2,11 @@ package Account;
 
 import java.util.ArrayList;
 
+import Exception.NegativeValueException;
+import Exception.NotEnoughSoldException;
+import Exception.TooBigValueException;
+import Exception.ZeroValueException;
+
 public class Bank {
 	private ArrayList<Account> accounts;
 	
@@ -11,6 +16,10 @@ public class Bank {
 
 	public ArrayList<Account> getAccounts() {
 		return accounts;
+	}
+	
+	public void creditAccount(int index, double value) throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException {
+		this.accounts.get(index).addCredit(value);
 	}
 
 	public void setAccounts(ArrayList<Account> accounts) {
