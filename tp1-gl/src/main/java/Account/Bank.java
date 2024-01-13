@@ -24,7 +24,8 @@ public class Bank {
 		this.accounts.get(index).addCredit(value);
 	}
 	
-	public void debitAccount(int index, double value) throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException {
+	public void debitAccount(int index, double value) throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException, AccountIndexNotFoundException {
+		this.findAccount(index);
 		this.accounts.get(index).addDebit(value);
 	}
 
