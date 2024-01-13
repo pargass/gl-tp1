@@ -3,6 +3,7 @@ import static org.junit.Assert.*;
 import org.junit.jupiter.api.*;
 
 import Account.Account;
+import Account.Bank;
 import Account.SavingAccount;
 import Account.TransactionHistory;
 import Exception.NegativeValueException;
@@ -14,6 +15,7 @@ public abstract class TestAccount {
 	
 	private Account a1;
 	private SavingAccount sa1;
+	private Bank b1;
 	
 	@BeforeEach
 	public void init() {
@@ -21,6 +23,8 @@ public abstract class TestAccount {
 		TransactionHistory debitHistory = createHistory();
 		this.sa1 = new SavingAccount(creditHistory, debitHistory);
 		this.a1 = new Account(creditHistory, debitHistory);
+		this.b1 = new Bank();
+		
 	}
 	
 	
@@ -240,6 +244,11 @@ public abstract class TestAccount {
 		sa1.setInterestRate(5);
 		sa1.dueDate();
 		assertEquals(105, sa1.getSold());
+	}
+	
+	@Test
+	public void testIfBankDoesntHaveAccountWhenCreated() {
+		assertEquals(b1.getAccounts().isEmpty(), true);
 	}
 	
 	
