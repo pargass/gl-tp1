@@ -295,6 +295,17 @@ public abstract class TestAccount {
 		assertEquals(50, b1.getAccounts().get(0).getSold());
 	}
 	
+	@Test
+	public void testIfWrongIndexThrowsException() {
+		b1.openAccount();
+		assertThrows(AccountNotFoundException,  () -> {
+			b1.creditAccount(0, 100);
+
+		});
+	}
+	
+	
+	
 	
 	
 	
