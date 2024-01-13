@@ -8,11 +8,14 @@ public class SavingAccount {
 	
 	/*credit of the account*/
 	private int credit;
+
+	private double interest;
 	
 	/*constructor*/
 	public SavingAccount(TransactionHistory creditHistory, TransactionHistory debitHistory) {
 		this.setCredit(0);
 		this.setDebit(0);
+		this.interest = 5;
 	}
 	
 	public void addCredit(double value) {
@@ -45,5 +48,13 @@ public class SavingAccount {
 	
 	public int getSold() {
 		return this.credit - this.debit;
+	}
+
+	public double getInterestRate() {
+		return this.interest;
+	}
+
+	public double calculateInterest() {
+		return this.getSold()*this.getInterestRate();
 	}
 }
