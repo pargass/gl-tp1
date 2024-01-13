@@ -283,7 +283,7 @@ public abstract class TestAccount {
 		b1.openAccount();
 		assertEquals(0, b1.getAccounts().get(0).getSold());
 		b1.debitAccount(0, 100);
-		assertEquals(100, b1.getAccounts().get(0).getSold());
+		assertEquals(-100, b1.getAccounts().get(0).getSold());
 	}
 	
 	
