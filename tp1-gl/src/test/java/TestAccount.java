@@ -262,5 +262,13 @@ public abstract class TestAccount {
 		
 	}
 	
+	@Test
+	public void testIfCreditAnAccountViaBankCreditTheAccountWell() {
+		b1.openAccount();
+		assertEquals(0, b1.getAccounts().get(0).getSold());
+		b1.creditAccount(0, 100);
+		assertEquals(100, b1.getAccounts().get(0).getSold());
+	}
+	
 	
 }
