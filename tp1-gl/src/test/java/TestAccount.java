@@ -298,7 +298,7 @@ public abstract class TestAccount {
 	@Test
 	public void testIfWrongIndexWhenCreditedThrowsException() {
 		b1.openAccount();
-		assertThrows(AccountNotFoundException,  () -> {
+		assertThrows(AccountIndexNotFoundException,  () -> {
 			b1.creditAccount(0, 100);
 
 		});
