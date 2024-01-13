@@ -39,7 +39,7 @@ public abstract class TestAccount {
 	}
 	
 	@Test
-	public void testIfValueIncrementedWhenCreditAccount() throws NegativeValueException, ZeroValueException, TooBigValueException {
+	public void testIfValueIncrementedWhenCreditAccount() throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException {
 		assertEquals(a1.getCredit(),0);
 		
 		a1.addCredit(5);
@@ -48,7 +48,7 @@ public abstract class TestAccount {
 	}
 	
 	@Test
-	public void testIfValueIncrementedWhenDebitAccount() throws NegativeValueException, ZeroValueException, TooBigValueException {
+	public void testIfValueIncrementedWhenDebitAccount() throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException {
 		assertEquals(a1.getDebit(),0);
 		
 		a1.addDebit(5);
@@ -73,7 +73,7 @@ public abstract class TestAccount {
 	}
 	
 	@Test
-	public void testIfSoldCorrectAfterSomeOperations() throws NegativeValueException, ZeroValueException, TooBigValueException {
+	public void testIfSoldCorrectAfterSomeOperations() throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException {
 		assertEquals(a1.getSold(), 0);
 		a1.addCredit(47);
 		a1.addDebit(12);
@@ -83,7 +83,7 @@ public abstract class TestAccount {
 	}
 	
 	@Test
-	public void testIfCreditAddToTheList() throws NegativeValueException, ZeroValueException, TooBigValueException {
+	public void testIfCreditAddToTheList() throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException {
 		a1.addCredit(100);
 		
 		assertEquals(100, a1.getCreditHistory().getIndex(0), 0.01);
@@ -94,7 +94,7 @@ public abstract class TestAccount {
 	}
 	
 	@Test
-	public void testIfDebitAddToTheList() throws NegativeValueException, ZeroValueException, TooBigValueException {
+	public void testIfDebitAddToTheList() throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException {
 		a1.addDebit(100);
 		
 		assertEquals(100, a1.getDebitHistory().getIndex(0), 0.01);
@@ -105,7 +105,7 @@ public abstract class TestAccount {
 	}
 	
 	@Test
-    public void testIfCreditHistorySumToIndexZeroWhenFull() throws NegativeValueException, ZeroValueException, TooBigValueException {
+    public void testIfCreditHistorySumToIndexZeroWhenFull() throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException {
 		double expectedSum = 0;
 		for (int i =0; i<Account.HISTORY_LENGTH; i++) {
         	a1.addCredit((i+1)*100);
@@ -119,7 +119,7 @@ public abstract class TestAccount {
 	}
 	
 	@Test
-    public void testIfDebitHistorySumToIndexZeroWhenFull() throws NegativeValueException, ZeroValueException, TooBigValueException {
+    public void testIfDebitHistorySumToIndexZeroWhenFull() throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException {
 		double expectedSum = 0;
 		for (int i =0; i<Account.HISTORY_LENGTH; i++) {
         	a1.addDebit((i+1)*100);
@@ -133,7 +133,7 @@ public abstract class TestAccount {
 	}
 	
 	@Test
-	public void testIfSoldIsCorrect() throws NegativeValueException, ZeroValueException, TooBigValueException {
+	public void testIfSoldIsCorrect() throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException {
 		assertEquals(0, a1.getSold());
 		
 		a1.addCredit(100);
@@ -194,7 +194,7 @@ public abstract class TestAccount {
 	}
 	
 	@Test
-	public void testIfValueIncrementedWhenCreditSavingAccount() throws NegativeValueException, ZeroValueException, TooBigValueException {
+	public void testIfValueIncrementedWhenCreditSavingAccount() throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException {
 		assertEquals(sa1.getCredit(),0);
 		
 		sa1.addCredit(5);
@@ -203,7 +203,7 @@ public abstract class TestAccount {
 	}
 	
 	@Test
-	public void testIfSoldCorrectAfterSomeOperationsOnSavingAccount() throws NegativeValueException, ZeroValueException, TooBigValueException {
+	public void testIfSoldCorrectAfterSomeOperationsOnSavingAccount() throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException {
 		assertEquals(sa1.getSold(), 0);
 		sa1.addCredit(47);
 		sa1.addCredit(25);
@@ -211,7 +211,7 @@ public abstract class TestAccount {
 	}
 	
 	@Test
-	public void testIfDebitValueSuperiorToSoldThrowsException() throws NotEnoughSoldException{
+	public void testIfDebitValueSuperiorToSoldThrowsException() throws NotEnoughSoldException, NegativeValueException, ZeroValueException, TooBigValueException{
 		assertEquals(sa1.getSold(), 0);
 		sa1.addCredit(50);
 		assertThrows(NotEnoughSoldException.class, () -> {
@@ -231,14 +231,14 @@ public abstract class TestAccount {
 	*/
 	
 	@Test
-	public void testIfInterestAreGood() {
+	public void testIfInterestAreGood() throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException {
 		assertEquals(sa1.getSold(), 0);
 		sa1.addCredit(100);
 		assertEquals(100*sa1.getInterestRate()/100,sa1.calculateInterest(), 0.01);
 	}
 	
 	@Test
-	public void testIfInterestAreAddedWhenDueDateMethodIsCalled() {
+	public void testIfInterestAreAddedWhenDueDateMethodIsCalled() throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException {
 		assertEquals(sa1.getSold(), 0);
 		sa1.addCredit(100);
 		sa1.setInterestRate(5);

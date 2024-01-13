@@ -1,54 +1,30 @@
 package Account;
 
+import Exception.NegativeValueException;
 import Exception.NotEnoughSoldException;
+import Exception.TooBigValueException;
+import Exception.ZeroValueException;
 
-public class SavingAccount {
-	/*debit of the account*/
-	private int debit;
-	
-	/*credit of the account*/
-	private int credit;
+public class SavingAccount extends Account{
 
 	private double interest;
 	
 	/*constructor*/
 	public SavingAccount(TransactionHistory creditHistory, TransactionHistory debitHistory) {
-		this.setCredit(0);
-		this.setDebit(0);
+		
+		super(creditHistory, debitHistory);
 		this.interest = 5;
 	}
 	
-	public void addCredit(double value) {
-		this.credit += value;
-	}
-	
-	public void addDebit(double value) throws NotEnoughSoldException {
+	@Override
+	public void addDebit(double value) throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException {
 		if ((this.getSold() - this.debit - value) < 0) {
 			throw new NotEnoughSoldException();
-		} else {
-			this.debit += value;
 		}
-	}
-
-	public int getDebit() {
-		return debit;
-	}
-
-	public void setDebit(int debit) {
-		this.debit = debit;
-	}
-
-	public int getCredit() {
-		return credit;
-	}
-
-	public void setCredit(int credit) {
-		this.credit = credit;
+	
+		super.addDebit(value);
 	}
 	
-	public int getSold() {
-		return this.credit - this.debit;
-	}
 
 	public double getInterestRate() {
 		return this.interest;
@@ -62,7 +38,7 @@ public class SavingAccount {
 		this.interest = i;
 	}
 
-	public void dueDate() {
+	public void dueDate() throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException {
 		this.addCredit(this.calculateInterest());
 	}
 

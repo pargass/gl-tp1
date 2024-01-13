@@ -1,20 +1,21 @@
 package Account;
 import Exception.NegativeValueException;
+import Exception.NotEnoughSoldException;
 import Exception.TooBigValueException;
 import Exception.ZeroValueException;
 
-public class Account {
+public class Account{
 	
 	public static final int HISTORY_LENGTH = 5;
 	
 	/*debit of the account*/
-	private int debit;
+	protected int debit;
 	
 	/*credit of the account*/
-	private int credit;
+	protected int credit;
 
-	private TransactionHistory creditHistory;
-    private TransactionHistory debitHistory;
+	protected TransactionHistory creditHistory;
+    protected TransactionHistory debitHistory;
 	
 
 	
@@ -26,19 +27,19 @@ public class Account {
         this.debitHistory = debitHistory;
 	}
 	
-	public void addCredit(int value) throws NegativeValueException, ZeroValueException, TooBigValueException{
+	public void addCredit(double value) throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException{
 		this.checkValue(value);
 		this.credit += value;
 		this.creditHistory.updateHistory(value);
 	}
 	
-	public void addDebit(int value) throws NegativeValueException, ZeroValueException, TooBigValueException {
+	public void addDebit(double value) throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException {
 		this.checkValue(value);
 		this.debit += value;
 		this.debitHistory.updateHistory(value);
 	}
 	
-	private void checkValue(int value) throws NegativeValueException, ZeroValueException, TooBigValueException {
+	protected void checkValue(double value) throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException {
 		if (value < 0) {
 			throw new NegativeValueException();
 		} else if (value == 0) {
