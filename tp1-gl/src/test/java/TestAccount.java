@@ -10,6 +10,8 @@ import Exception.NegativeValueException;
 import Exception.TooBigValueException;
 import Exception.ZeroValueException;
 import Exception.NotEnoughSoldException;
+import Exception.AccountIndexNotFoundException;
+
 
 public abstract class TestAccount {
 	
@@ -298,7 +300,7 @@ public abstract class TestAccount {
 	@Test
 	public void testIfWrongIndexWhenCreditedThrowsException() {
 		b1.openAccount();
-		assertThrows(AccountIndexNotFoundException,  () -> {
+		assertThrows(AccountIndexNotFoundException.class,  () -> {
 			b1.creditAccount(0, 100);
 
 		});
