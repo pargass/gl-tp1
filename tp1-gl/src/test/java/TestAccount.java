@@ -302,7 +302,14 @@ public abstract class TestAccount {
 		b1.openAccount();
 		assertThrows(AccountIndexNotFoundException.class,  () -> {
 			b1.creditAccount(1, 100);
-
+		});
+	}
+	
+	@Test
+	public void testIfWrongIndexWhenDebitedThrowsException() {
+		b1.openAccount();
+		assertThrows(AccountIndexNotFoundException.class,  () -> {
+			b1.debitAccount(1, 100);
 		});
 	}
 	
