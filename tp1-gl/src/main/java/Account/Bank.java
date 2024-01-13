@@ -16,4 +16,14 @@ public class Bank {
 	public void setAccounts(ArrayList<Account> accounts) {
 		this.accounts = accounts;
 	}
+
+	public void openAccount() {
+		this.accounts.add(new Account(new ArrayListTransactionHistory(), new ArrayListTransactionHistory()));
+	}
+	
+	public void openSavingAccount() {
+		this.accounts.add(new SavingAccount(new ArrayListTransactionHistory(), new ArrayListTransactionHistory()));
+	}
+	
+	
 }
