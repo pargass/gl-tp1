@@ -6,6 +6,7 @@ import Exception.NegativeValueException;
 import Exception.NotEnoughSoldException;
 import Exception.TooBigValueException;
 import Exception.ZeroValueException;
+import Exception.AccountIndexNotFoundException;
 
 public class Bank {
 	private ArrayList<Account> accounts;
@@ -18,7 +19,8 @@ public class Bank {
 		return accounts;
 	}
 	
-	public void creditAccount(int index, double value) throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException {
+	public void creditAccount(int index, double value) throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException, AccountIndexNotFoundException {
+		this.findAccount(index);
 		this.accounts.get(index).addCredit(value);
 	}
 	
@@ -36,6 +38,12 @@ public class Bank {
 	
 	public void openSavingAccount() {
 		this.accounts.add(new SavingAccount(new ArrayListTransactionHistory(), new ArrayListTransactionHistory()));
+	}
+	
+	private void findAccount(int index) throws AccountIndexNotFoundException {
+		if (index >= this.accounts.size()) {
+			throw new AccountIndexNotFoundException();
+		}
 	}
 
 	
