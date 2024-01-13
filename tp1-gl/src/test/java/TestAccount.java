@@ -278,6 +278,14 @@ public abstract class TestAccount {
 		assertEquals(100, b1.getAccounts().get(0).getSold());
 	}
 	
+	@Test
+	public void testIfCreditAnAccountViaBankDebitTheAccountWell() throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException {
+		b1.openAccount();
+		assertEquals(0, b1.getAccounts().get(0).getSold());
+		b1.debitAccount(0, 100);
+		assertEquals(100, b1.getAccounts().get(0).getSold());
+	}
+	
 	
 	
 	
