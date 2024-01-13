@@ -265,7 +265,7 @@ public abstract class TestAccount {
 	}
 	
 	@Test
-	public void testIfCreditAnAccountViaBankCreditTheAccountWell() throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException {
+	public void testIfCreditAnAccountViaBankCreditTheAccountWell() throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException, AccountIndexNotFoundException {
 		b1.openAccount();
 		assertEquals(0, b1.getAccounts().get(0).getSold());
 		b1.creditAccount(0, 100);
@@ -273,7 +273,7 @@ public abstract class TestAccount {
 	}
 	
 	@Test
-	public void testIfCreditASavingAccountViaBankCreditTheAccountWell() throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException {
+	public void testIfCreditASavingAccountViaBankCreditTheAccountWell() throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException, AccountIndexNotFoundException {
 		b1.openSavingAccount();
 		assertEquals(0, b1.getAccounts().get(0).getSold());
 		b1.creditAccount(0, 100);
@@ -289,7 +289,7 @@ public abstract class TestAccount {
 	}
 	
 	@Test
-	public void testIfCreditASavingAccountViaBankDebitTheAccountWell() throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException {
+	public void testIfCreditASavingAccountViaBankDebitTheAccountWell() throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException, AccountIndexNotFoundException {
 		b1.openAccount();
 		assertEquals(0, b1.getAccounts().get(0).getSold());
 		b1.creditAccount(0, 100);
@@ -301,7 +301,7 @@ public abstract class TestAccount {
 	public void testIfWrongIndexWhenCreditedThrowsException() {
 		b1.openAccount();
 		assertThrows(AccountIndexNotFoundException.class,  () -> {
-			b1.creditAccount(0, 100);
+			b1.creditAccount(1, 100);
 
 		});
 	}
