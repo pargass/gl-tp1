@@ -251,5 +251,16 @@ public abstract class TestAccount {
 		assertEquals(b1.getAccounts().isEmpty(), true);
 	}
 	
+	@Test
+	public void testIfAccountAddedToTheListWhenOpenned() {
+		assertEquals(b1.getAccounts().isEmpty(), true);
+		b1.openAccount();
+		assertEquals(b1.getAccounts().get(0) instanceof Account, true);
+		b1.openSavingAccount();
+		assertEquals(b1.getAccounts().get(1) instanceof SavingAccount, true);
+		
+		
+	}
+	
 	
 }
