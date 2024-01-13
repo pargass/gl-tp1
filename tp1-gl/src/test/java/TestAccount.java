@@ -230,7 +230,7 @@ public abstract class TestAccount {
 	public void testIfInterestAreGood() {
 		assertEquals(sa1.getSold(), 0);
 		sa1.addCredit(100);
-		assertEquals(100*sa1.getInterestRate()/100-100,sa1.calculateInterest(), 0.01);
+		assertEquals(100*sa1.getInterestRate()/100,sa1.calculateInterest(), 0.01);
 	}
 	
 	@Test
@@ -238,7 +238,6 @@ public abstract class TestAccount {
 		assertEquals(sa1.getSold(), 0);
 		sa1.addCredit(100);
 		sa1.setInterestRate(5);
-		sa1.addCredit(100);
 		sa1.dueDate();
 		assertEquals(105, sa1.getSold());
 	}
