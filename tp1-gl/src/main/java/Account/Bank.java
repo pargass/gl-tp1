@@ -46,6 +46,11 @@ public class Bank {
 			throw new AccountIndexNotFoundException();
 		}
 	}
+	
+	public void transfer(int accountInit, int accountDest, double value) throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException, AccountIndexNotFoundException {
+		this.debitAccount(accountInit, value);
+		this.creditAccount(accountDest, value);
+	}
 
 	
 }
