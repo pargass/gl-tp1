@@ -313,6 +313,22 @@ public abstract class TestAccount {
 		});
 	}
 	
+	@Test
+	public void testIfCreditAccountFromAnotherOneDebitTheGoodAccountAndCreditTheGoodAccount() throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException, AccountIndexNotFoundException {
+		b1.openAccount();
+		b1.openAccount();
+		b1.creditAccount(0, 100);
+		assertEquals(100, b1.getAccounts().get(0));
+		assertEquals(0, b1.getAccounts().get(1));
+		
+		b1.transfer(0, 1, 100);
+		
+		assertEquals(0, b1.getAccounts().get(0));
+		assertEquals(100, b1.getAccounts().get(1));
+		
+		
+	}
+	
 	
 	
 	
