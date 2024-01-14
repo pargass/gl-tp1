@@ -354,6 +354,17 @@ public abstract class TestAccount {
 		});
 	}
 	
+	@Test
+	public void testIfTransferFromAnInexistantAccountThrowAnException() {
+		b1.openSavingAccount();
+		b1.openAccount();
+		
+		assertThrows(AccountIndexNotFoundException.class, () -> {
+			b1.transfer(2, 1, 150);
+		});
+	}
+	
+	
 	
 	
 	
