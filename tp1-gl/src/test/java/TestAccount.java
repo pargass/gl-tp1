@@ -364,6 +364,17 @@ public abstract class TestAccount {
 		});
 	}
 	
+	public void testIfTransferToAnInexistantAccountThrowAnException() throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException, AccountIndexNotFoundException {
+		b1.openSavingAccount();
+		b1.openAccount();
+		b1.creditAccount(0, 100);
+		assertEquals(100, b1.getAccounts().get(0).getSold());
+		
+		assertThrows(AccountIndexNotFoundException.class, () -> {
+			b1.transfer(0, 2, 100);
+		});
+	}
+	
 	
 	
 	
