@@ -318,13 +318,13 @@ public abstract class TestAccount {
 		b1.openAccount();
 		b1.openAccount();
 		b1.creditAccount(0, 100);
-		assertEquals(100, b1.getAccounts().get(0));
-		assertEquals(0, b1.getAccounts().get(1));
+		assertEquals(100, b1.getAccounts().get(0).getSold());
+		assertEquals(0, b1.getAccounts().get(1).getSold());
 		
 		b1.transfer(0, 1, 100);
 		
-		assertEquals(0, b1.getAccounts().get(0));
-		assertEquals(100, b1.getAccounts().get(1));
+		assertEquals(0, b1.getAccounts().get(0).getSold());
+		assertEquals(100, b1.getAccounts().get(1).getSold());
 		
 		
 	}
