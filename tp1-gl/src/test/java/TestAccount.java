@@ -341,6 +341,18 @@ public abstract class TestAccount {
 		assertEquals(100, b1.getAccounts().get(1).getSold());
 	}
 	
+	@Test
+	public void testIfTransferTooMuchFromASavingAccountThrowsAnException() throws NegativeValueException, ZeroValueException, TooBigValueException, NotEnoughSoldException, AccountIndexNotFoundException {
+		b1.openSavingAccount();
+		b1.openAccount();
+		b1.creditAccount(0, 100);
+		assertEquals(100, b1.getAccounts().get(0).getSold());
+		assertEquals(0, b1.getAccounts().get(1).getSold());
+		
+		assertThrows(NotEnoughSoldException.class, () -> {
+			b1.transfer(0, 1, 150);
+		});
+	}
 	
 	
 	
