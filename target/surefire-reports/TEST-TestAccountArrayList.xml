@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestAccountArrayList" time="0.106" tests="33" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="sun.desktop" value="gnome"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="java.specification.version" value="11"/>
+    <property name="sun.cpu.isalist" value=""/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/home/gaspar/cours/gl/gl-tp1/tp1-gl/target/test-classes:/home/gaspar/cours/gl/gl-tp1/tp1-gl/target/classes:/home/gaspar/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.9.1/junit-jupiter-engine-5.9.1.jar:/home/gaspar/.m2/repository/org/junit/platform/junit-platform-engine/1.9.1/junit-platform-engine-1.9.1.jar:/home/gaspar/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/home/gaspar/.m2/repository/org/junit/platform/junit-platform-commons/1.9.1/junit-platform-commons-1.9.1.jar:/home/gaspar/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.9.1/junit-jupiter-api-5.9.1.jar:/home/gaspar/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/gaspar/.m2/repository/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar:"/>
+    <property name="java.vm.vendor" value="Ubuntu"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://ubuntu.com/"/>
+    <property name="user.timezone" value=""/>
+    <property name="java.vm.specification.version" value="11"/>
+    <property name="os.name" value="Linux"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-11-openjdk-amd64/lib"/>
+    <property name="sun.java.command" value="/home/gaspar/cours/gl/gl-tp1/tp1-gl/target/surefire/surefirebooter1627700700299549027.jar /home/gaspar/cours/gl/gl-tp1/tp1-gl/target/surefire 2024-01-16T17-07-07_598-jvmRun1 surefire14338057065306578620tmp surefire_07108550632062348984tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/home/gaspar/cours/gl/gl-tp1/tp1-gl/target/test-classes:/home/gaspar/cours/gl/gl-tp1/tp1-gl/target/classes:/home/gaspar/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.9.1/junit-jupiter-engine-5.9.1.jar:/home/gaspar/.m2/repository/org/junit/platform/junit-platform-engine/1.9.1/junit-platform-engine-1.9.1.jar:/home/gaspar/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/home/gaspar/.m2/repository/org/junit/platform/junit-platform-commons/1.9.1/junit-platform-commons-1.9.1.jar:/home/gaspar/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.9.1/junit-jupiter-api-5.9.1.jar:/home/gaspar/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/gaspar/.m2/repository/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/home/gaspar"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2023-10-17"/>
+    <property name="java.home" value="/usr/lib/jvm/java-11-openjdk-amd64"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/home/gaspar/cours/gl/gl-tp1/tp1-gl"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="/home/gaspar/cours/gl/gl-tp1/tp1-gl/target/surefire/surefirebooter1627700700299549027.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="11.0.21+9-post-Ubuntu-0ubuntu122.04"/>
+    <property name="user.name" value="gaspar"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="6.2.0-39-generic"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="localRepository" value="/home/gaspar/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://bugs.launchpad.net/ubuntu/+source/openjdk-lts"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="java.version" value="11.0.21"/>
+    <property name="user.dir" value="/home/gaspar/cours/gl/gl-tp1/tp1-gl"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Ubuntu"/>
+    <property name="java.vm.version" value="11.0.21+9-post-Ubuntu-0ubuntu122.04"/>
+    <property name="java.specification.maintenance.version" value="2"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="55.0"/>
+  </properties>
+  <testcase name="testIfCreditHistorySumToIndexZeroWhenFull" classname="TestAccountArrayList" time="0.035"/>
+  <testcase name="testIfCreditASavingAccountViaBankCreditTheAccountWell" classname="TestAccountArrayList" time="0.001"/>
+  <testcase name="testIfNegativeValueThrowsExceptionInAddCredit" classname="TestAccountArrayList" time="0.003"/>
+  <testcase name="testIfDebitHistorySumToIndexZeroWhenFull" classname="TestAccountArrayList" time="0.001"/>
+  <testcase name="testIfInterestAreGood" classname="TestAccountArrayList" time="0.001"/>
+  <testcase name="testIfValueIncrementedWhenCreditAccount" classname="TestAccountArrayList" time="0.001"/>
+  <testcase name="testIfTransferFromAnInexistantAccountThrowAnException" classname="TestAccountArrayList" time="0.001"/>
+  <testcase name="testIfTransferTooMuchFromASavingAccountThrowsAnException" classname="TestAccountArrayList" time="0.002"/>
+  <testcase name="testIfValueIncrementedWhenDebitAccount" classname="TestAccountArrayList" time="0.001"/>
+  <testcase name="testIfDebitValueSuperiorToSoldThrowsException" classname="TestAccountArrayList" time="0.002"/>
+  <testcase name="testIfCreditAccountFromSavingAccountDebitTheGoodAccountAndCreditTheGoodAccount" classname="TestAccountArrayList" time="0.001"/>
+  <testcase name="testDebitOver100000ThrowsAnException" classname="TestAccountArrayList" time="0.001"/>
+  <testcase name="testIfAccountAddedToTheListWhenOpenned" classname="TestAccountArrayList" time="0.001"/>
+  <testcase name="testIfCreditAndDebitToZeroWhenSavingAccountCreated" classname="TestAccountArrayList" time="0.001"/>
+  <testcase name="testIfCreditAddToTheList" classname="TestAccountArrayList" time="0.001"/>
+  <testcase name="testIfWrongIndexWhenCreditedThrowsException" classname="TestAccountArrayList" time="0.002"/>
+  <testcase name="testIfDebitAddToTheList" classname="TestAccountArrayList" time="0.001"/>
+  <testcase name="testDebitZeroForbiddenThrowsAnException" classname="TestAccountArrayList" time="0.001"/>
+  <testcase name="testIfSoldCorrectAfterSomeOperationsOnSavingAccount" classname="TestAccountArrayList" time="0.001"/>
+  <testcase name="testIfSoldCorrectAfterSomeOperations" classname="TestAccountArrayList" time="0.001"/>
+  <testcase name="testIfCreditASavingAccountViaBankDebitTheAccountWell" classname="TestAccountArrayList" time="0.001"/>
+  <testcase name="testIfSoldIsCorrect" classname="TestAccountArrayList" time="0.001"/>
+  <testcase name="testIfBankDoesntHaveAccountWhenCreated" classname="TestAccountArrayList" time="0"/>
+  <testcase name="testIfCreditAndDebitToZeroWhenAccountCreated" classname="TestAccountArrayList" time="0.001"/>
+  <testcase name="testIfCreditAnAccountViaBankCreditTheAccountWell" classname="TestAccountArrayList" time="0.001"/>
+  <testcase name="testIfNegativeValueThrowsExceptionInAddDebit" classname="TestAccountArrayList" time="0.001"/>
+  <testcase name="testCreditOver100000ThrowsAnException" classname="TestAccountArrayList" time="0.001"/>
+  <testcase name="testIfCreditAccountFromAnotherOneDebitTheGoodAccountAndCreditTheGoodAccount" classname="TestAccountArrayList" time="0.001"/>
+  <testcase name="testCreditZeroForbiddenThrowsAnException" classname="TestAccountArrayList" time="0.001"/>
+  <testcase name="testIfCreditAnAccountViaBankDebitTheAccountWell" classname="TestAccountArrayList" time="0"/>
+  <testcase name="testIfInterestAreAddedWhenDueDateMethodIsCalled" classname="TestAccountArrayList" time="0.001"/>
+  <testcase name="testIfValueIncrementedWhenCreditSavingAccount" classname="TestAccountArrayList" time="0.001"/>
+  <testcase name="testIfWrongIndexWhenDebitedThrowsException" classname="TestAccountArrayList" time="0.001"/>
+</testsuite>
